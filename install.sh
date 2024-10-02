@@ -9,11 +9,11 @@ clear
 
 installTheme(){
     cd /var/www/
-    tar -cvf Pterodactyl_Nightcore_Themebackup.tar.gz pterodactyl
+    tar -cvf Pterodactyl_CJNSIbackup.tar.gz pterodactyl
     echo "Installing theme..."
     cd /var/www/pterodactyl
     rm -r Pterodactyl_CJNSI
-    git clone https://github.com/NoPro200/Pterodactyl_Nightcore_Theme.git
+    git clone https://github.com/atlantlc/panel.git
     cd Pterodactyl_CJNSI
     rm /var/www/pterodactyl/resources/scripts/Pterodactyl_CJNSI.css
     rm /var/www/pterodactyl/resources/scripts/index.tsx
@@ -47,20 +47,20 @@ installThemeQuestion(){
 }
 
 repair(){
-    bash <(curl https://raw.githubusercontent.com/NoPro200/Pterodactyl_Nightcore_Theme/main/repair.sh)
+    bash <(curl https://raw.githubusercontent.com/atlantlc/panel/main/repair.sh)
 }
 
 restoreBackUp(){
     echo "Restoring backup..."
     cd /var/www/
-    tar -xvf Pterodactyl_Nightcore_Themebackup.tar.gz
-    rm Pterodactyl_Nightcore_Themebackup.tar.gz
+    tar -xvf Pterodactyl_CJNSIbackup.tar.gz
+    rm Pterodactyl_CJNSIbackup.tar.gz
 
     cd /var/www/pterodactyl
     yarn build:production
     sudo php artisan optimize:clear
 }
-echo "Copyright (c) 2024 Angelillo15 and NoPro200"
+echo "Copyright (c) 2024 CJNSI"
 echo "This program is free software: you can redistribute it and/or modify"
 echo ""
 echo ""
